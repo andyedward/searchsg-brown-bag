@@ -1,0 +1,19 @@
+{
+  "name": "searchsg-brown-bag",
+  "version": "1.0.0",
+  "description": "SearchSG Brown Bag",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyedward/searchsg-brown-bag.git"
+  },
+  "author": "Andy Edward Gunawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyedward/searchsg-brown-bag/issues"
+  },
+  "homepage": "https://github.com/andyedward/searchsg-brown-bag#readme"
+}
