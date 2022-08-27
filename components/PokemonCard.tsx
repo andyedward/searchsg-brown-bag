@@ -10,7 +10,7 @@ const PokemonCard: React.FunctionComponent<{
       <div
         className="m-2 h-48 lg:h-auto lg:w-24 flex-none bg-contain bg-no-repeat rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
         style={{
-          backgroundImage: `url("http://localhost:8080/pokemon/${pokemon.name.toLowerCase()}.jpg")`,
+          backgroundImage: `url("http://localhost:3000/pokemon/${pokemon.name.toLowerCase()}.jpg")`,
         }}
         title={pokemon.name}
       ></div>

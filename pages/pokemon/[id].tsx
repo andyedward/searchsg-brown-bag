@@ -5,7 +5,7 @@ import type { NextApiRequest } from "next";
 import { Pokemon } from "../../src/types";
 
 export async function getServerSideProps(req: NextApiRequest) {
-  const response = await fetch("http://localhost:8080/pokemon.json");
+  const response = await fetch("http://localhost:3000/pokemon.json");
   const pokemon = (await response.json()) as Pokemon[];
 
   return {
@@ -22,7 +22,7 @@ const Detail: React.FunctionComponent<{
     <div className="flex gap-2">
       <div className="max-w-md">
         <img
-          src={`http://localhost:8080/pokemon/${pokemon.name.toLowerCase()}.jpg`}
+          src={`http://localhost:3000/pokemon/${pokemon.name.toLowerCase()}.jpg`}
           alt={pokemon.name}
           className="w-full"
         />

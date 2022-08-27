@@ -7,7 +7,7 @@ import { Pokemon } from "../src/types";
 import PokemonCard from "../components/PokemonCard";
 
 export async function getServerSideProps(req: NextApiRequest) {
-  const response = await fetch("http://localhost:8080/pokemon.json");
+  const response = await fetch("http://localhost:3000/pokemon.json");
   const pokemon = (await response.json()) as Pokemon[];
 
   const q = (req.query?.q as string)?.toLowerCase() ?? "";
