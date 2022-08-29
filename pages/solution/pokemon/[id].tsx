@@ -2,7 +2,7 @@
 import React from "react";
 import type { NextApiRequest } from "next";
 
-import { Pokemon } from "../../src/types";
+import { Pokemon } from "../../../src/types";
 
 export async function getServerSideProps(req: NextApiRequest) {
   const response = await fetch("http://localhost:3000/pokemon.json");

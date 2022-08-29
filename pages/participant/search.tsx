@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 
-import { Pokemon } from "../src/types";
+import { Pokemon } from "../../src/types";
 
-import PokemonCard from "../components/PokemonCard";
+import PokemonCard from "../../components/PokemonCard";
 
 const SearchPage: React.FunctionComponent = () => {
   const [query, setQuery] = useState("");
