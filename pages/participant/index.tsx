@@ -39,7 +39,7 @@ const Home: React.FunctionComponent<{
       </form>
       <div className="grid grid-cols-3 gap-5 mt-3">
         {pokemon.slice(0, 10).map((pokemon) => (
-          <Link href={`/pokemon/${pokemon.id}`} key={pokemon.id}>
+          <Link href={`/participant/pokemon/${pokemon.id}`} key={pokemon.id}>
             <a>
               <PokemonCard pokemon={pokemon} />
             </a>
