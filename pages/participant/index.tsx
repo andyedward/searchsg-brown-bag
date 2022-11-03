@@ -13,20 +13,6 @@ const Home: React.FunctionComponent<{
 }> = () => {
   const [query, setQuery] = React.useState("");
 
-  const [pokemon, setPokemon] = React.useState(pokemonList);
-
-  const onSearchQueryChange = (value) => {
-    setQuery(value);
-    if (!value) {
-      setPokemon(pokemonList);
-      return;
-    }
-    setPokemon(
-      pokemon.filter((p: Pokemon) => p.name.toLowerCase().includes(value))
-    );
-
-    console.log(value);
-  };
   return (
     <>
       <form>
@@ -34,20 +20,11 @@ const Home: React.FunctionComponent<{
           type="text"
           name="q"
           value={query}
-          onChange={(e) => onSearchQueryChange(e.target.value)}
           className="p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-xl border-gray-300 border-2 rounded-md"
           placeholder="Search"
         />
       </form>
-      <div className="grid grid-cols-3 gap-5 mt-3">
-        {pokemon.slice(0, 10).map((pokemon) => (
-          <Link href={`/participant/pokemon/${pokemon.id}`} key={pokemon.id}>
-            <a>
-              <PokemonCard pokemon={pokemon} />
-            </a>
-          </Link>
-        ))}
-      </div>
+      <div className="grid grid-cols-3 gap-5 mt-3"></div>
     </>
   );
 };
