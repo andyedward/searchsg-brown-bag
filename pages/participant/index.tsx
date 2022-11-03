@@ -5,26 +5,28 @@ import Link from "next/link";
 import { Pokemon } from "../../src/types";
 
 import PokemonCard from "../../components/PokemonCard";
-
-export async function getServerSideProps(req: NextApiRequest) {
-  const response = await fetch("http://localhost:3000/pokemon.json");
-  const pokemon = (await response.json()) as Pokemon[];
-
-  const q = (req.query?.q as string)?.toLowerCase() ?? "";
-
-  return {
-    props: {
-      q: req.query?.q ?? "",
-      pokemon: pokemon.filter((p: Pokemon) => p.name.toLowerCase().includes(q)),
-    },
-  };
-}
+import pokemonList from "../../public/pokemon.json";
 
 const Home: React.FunctionComponent<{
   q: string;
   pokemon: Pokemon[];
-}> = ({ q, pokemon }) => {
-  const [query, setQuery] = React.useState(q);
+}> = () => {
+  const [query, setQuery] = React.useState("");
+
+  const [pokemon, setPokemon] = React.useState(pokemonList);
+
+  const onSearchQueryChange = (value) => {
+    setQuery(value);
+    if (!value) {
+      setPokemon(pokemonList);
+      return;
+    }
+    setPokemon(
+      pokemon.filter((p: Pokemon) => p.name.toLowerCase().includes(value))
+    );
+
+    console.log(value);
+  };
   return (
     <>
       <form>
@@ -32,7 +34,7 @@ const Home: React.FunctionComponent<{
           type="text"
           name="q"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => onSearchQueryChange(e.target.value)}
           className="p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-xl border-gray-300 border-2 rounded-md"
           placeholder="Search"
         />
